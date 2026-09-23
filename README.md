@@ -1,6 +1,6 @@
 # Freska Market — segmented supermarket network (Cisco Packet Tracer)
 
-> Topology and validation screenshots are prepared locally and pending upload authorization.
+![Freska Market topology](evidence/01-network-topology.png)
 
 An educational network design for a supermarket with seven functional VLANs, redundant switching links, wireless clients, IP telephony, DHCP, router subinterfaces, PAT, and a management access policy. The topology and evidence shown here belong to this lab.
 
@@ -24,12 +24,12 @@ BR connects to ISP across `10.10.0.0/30` (`10.10.0.2` ↔ `10.10.0.1`). ISP also
 | --- | --- | --- |
 | Switching | VLAN membership and selective trunk allowed lists on CSW1, CSW2, SW1–SW3 | [Sanitized configurations](configs/) |
 | Edge ports | PortFast and BPDU Guard on configured client ports | [SW1](configs/SW1.txt), [SW2](configs/SW2.txt), [SW3](configs/SW3.txt) |
-| STP | Rapid-PVST on central switches; root/port roles observed in CLI | CSW1 (screenshot pending upload), CSW2 (screenshot pending upload) |
-| DHCP | Seven pools and client leases across the VLAN subnets visible in BR CLI captures; Option 150 configured for voice | Bindings (screenshot pending upload), BR CLI (screenshot pending upload) |
-| Routing | BR 802.1Q gateways and default route toward ISP documented in BR CLI captures | Screenshot pending upload |
-| PAT | Overload using BR WAN address; dynamic translations visible for management clients | NAT/ACL (screenshot pending upload) |
-| Management ACL | `PROTECT_VLAN10` configured; deny counter observed | NAT/ACL (screenshot pending upload) |
-| Wi-Fi | Client association lines visible in Packet Tracer topology | Topology (screenshot pending upload) |
+| STP | Rapid-PVST on central switches; root/port roles observed in CLI | [CSW1](evidence/05-stp-csw1.png), [CSW2](evidence/06-stp-csw2.png) |
+| DHCP | Seven pools and client leases across the VLAN subnets visible in BR CLI capture; Option 150 appears in the supplied BR configuration screenshots but is not included in the repository images | [Bindings](evidence/03-dhcp-bindings.png) |
+| Routing | BR 802.1Q gateways and default route toward ISP documented in supplied BR configuration screenshots | BR configuration screenshots pending safe redaction |
+| PAT | Overload using BR WAN address; dynamic translations visible for management clients | [NAT/ACL](evidence/02-nat-and-acl.png) |
+| Management ACL | `PROTECT_VLAN10` configured; deny counter observed | [NAT/ACL](evidence/02-nat-and-acl.png) |
+| Wi-Fi | Client association lines visible in Packet Tracer topology | [Topology](evidence/01-network-topology.png) |
 
 **Evidence boundary:** A configured DHCP pool or ACL is distinct from a successful end-to-end client test. The captures demonstrate DHCP bindings, some NAT translations, and ACL matches; they do not establish Internet access for every VLAN, voice call completion, or successful guest isolation in every direction.
 
@@ -65,7 +65,7 @@ show ip nat statistics
 ## Files and limitations
 
 - [`configs/`](configs/) contains **redacted reference outputs**, not paste-ready replacement configurations. Login credentials and the lab banner have been removed. BR configuration was supplied as screenshots, so no complete BR text configuration is claimed here.
-- [`evidence/`](evidence/) is reserved for this project’s screenshots. The newer topology screenshot with visible wireless associations will replace the original overview once uploaded.
+- [`evidence/`](evidence/) contains five project screenshots. The newer topology screenshot with visible wireless associations replaces the original overview. A sixth screenshot was removed from the current tree because it displayed a credential hash; it remains in this private repository's history, so the repository must not be made public without replacing that history.
 - The original `.pkt` was withheld from the repository because Packet Tracer project files can embed recoverable lab credentials. A credential-rotated copy can be added after checking it in Packet Tracer.
 
 This is a simulated educational environment; it does not imply deployment in a production supermarket.

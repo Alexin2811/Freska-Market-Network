@@ -65,7 +65,7 @@ show ip nat statistics
 ## Files and limitations
 
 - [`configs/`](configs/) contains **redacted reference outputs**, not paste-ready replacement configurations. Login credentials and the lab banner have been removed. BR configuration was supplied as screenshots, so no complete BR text configuration is claimed here.
-- [`evidence/`](evidence/) contains five project screenshots. The newer topology screenshot with visible wireless associations replaces the original overview. A sixth screenshot was removed from the current tree because it displayed a credential hash; it remains in this private repository's history, so the repository must not be made public without replacing that history.
+- [`evidence/`](evidence/) contains five project screenshots. The newer topology screenshot with visible wireless associations replaces the original overview. A sixth screenshot showing a lab credential hash was removed from the current tree. It remains accessible in an earlier commit; all credentials in this simulation should be treated as publicly disclosed and never reused.
 - The original `.pkt` was withheld from the repository because Packet Tracer project files can embed recoverable lab credentials. A credential-rotated copy can be added after checking it in Packet Tracer.
 
 This is a simulated educational environment; it does not imply deployment in a production supermarket.
